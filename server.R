@@ -14,10 +14,12 @@ library(DT)
 source("scripts/utils.R")
 source("scripts/plot.R")
 
+# Global dataframe
+df <- getData()
+
 # Define server logic required to draw a histogram
 shinyServer(function (input, output) {
-    # Load data and create static titles
-    df <- getData()
+    # Create static titles
     output$inspectorTitle = renderUI({
         tags$h3(paste("Get to know the", nrow(df), "pets for adoption in Montgomery County, MD."))
     })
