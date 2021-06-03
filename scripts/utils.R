@@ -59,3 +59,22 @@ prettyPrintAge <- function (age) {
       if (trunc(age) > 1) "-years" else "-year", "-old")
   }
 }
+
+# Pretty-prints count summaries about all adoptable animals.
+prettyPrintSpecies <- function() {
+  str <- "There are "
+  specs <- df %>%
+    group_by(Animal.Type) %>%
+    summarise(n = n()) %>%
+    select(Animal.Type, n)
+  for (i in 1:nrow(specs)) {
+    spec = specs[i,]
+    if (i == nrow(specs)) {
+      str <- paste0(str, "and ")
+    }
+    str <- paste0(str, spec$n, " ", tolower(spec$Animal.Type), "s, ")
+  }
+  str <- paste(
+    str, "among all", nrow(df), "animals waiting for a home."
+  )
+}
