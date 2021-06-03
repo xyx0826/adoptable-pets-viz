@@ -1,0 +1,13 @@
+name: adoptable-pets-viz
+title: adoptable-pets-viz
+username:
+account: xyx0826
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4222107
+bundleId: 4672048
+url: https://xyx0826.shinyapps.io/adoptable-pets-viz/
+when: 1622706003.8926
+lastSyncTime: 1622706003.8926
+asMultiple: FALSE
+asStatic: FALSE
