@@ -1,6 +1,5 @@
 # utils.R: contains functions for cleaning data.
 
-library(tidyverse)
 library(hash)
 
 # A look-up table for converting different time units to years.

@@ -7,10 +7,12 @@
 #    http://shiny.rstudio.com/
 #
 
+library(tidyverse)
 library(shiny)
 library(DT)
 
 source("scripts/utils.R")
+source("scripts/plot.R")
 
 # Define server logic required to draw a histogram
 shinyServer(function (input, output) {
