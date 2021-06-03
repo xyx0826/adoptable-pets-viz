@@ -19,6 +19,14 @@ df <- getData()
 
 # Define server logic required to draw a histogram
 shinyServer(function (input, output) {
+    # Listen for button click to select a random pet
+    observeEvent(input$random, {
+        # To control a DT, use its proxy
+        dataTableProxy("inspectorTable") %>%
+            # Randomize a row index
+            selectRows(round(runif(1, 1, nrow(df))))
+    })
+
     # Create static titles
     output$inspectorTitle = renderUI({
         tags$h3(paste("Get to know the", nrow(df), "pets for adoption in Montgomery County, MD."))
@@ -36,15 +44,20 @@ shinyServer(function (input, output) {
             tags$span("Select a pet to view its information.")
         } else {
             selRow <- df[selIndex(),]
+            # Format summary text
             text <- paste0(
+                # No asterisks in names
                 str_remove(selRow$Pet.Name, "\\*"),
+                # Hide species if unspecified
                 if (selRow$Animal.Type == "Other")
                     ""
                 else
                     paste(" the", tolower(selRow$Animal.Type)),
                 " is a ",
+                # Pretty-print ages
                 prettyPrintAge(selRow$Pet.Age),
                 " ",
+                # TODO: pretty-print breed
                 tolower(selRow$Breed),
                 "."
             )
