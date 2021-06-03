@@ -25,3 +25,9 @@ getYearsFromAgeString <- function (str) {
   }
   total
 }
+
+# Converts a string combination of colors to vectors of those.
+# Each color is in title case, i.e. first letter capitalized.
+getVecFromColorString <- function (str) {
+  str_to_title(str_split(str, " / ", simplify = TRUE))
+}
