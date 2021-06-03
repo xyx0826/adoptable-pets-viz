@@ -1,0 +1,25 @@
+---
+title: "Takeaways"
+output: html_document
+---
+
+## Conclusions.
+
+We hope you've enjoyed the cat pictures.
+This dataset provides a snapshot of the animal adoption -
+and abandonment - landscape.
+
+First, among the various kinds of pets, such as dogs, cats, rabbits,
+birds, etc, the largest number of the sheltered animals in the dataset
+of Montgomery County is cats.
+Secondly, in terms of the specific breeds, domestic shorthair cats and
+pitbulls are the most sheltered pets.
+
+Giving a pet a home is a huge responsibility, yet sadly a lot of people
+do not take it seriously.
+It seems like Montgomery County is performing quite well
+in terms of pet adoption - the county has over a million residents
+according to US Census, but with merely eighty pets for adoption.
+However, in the United States according to ASPCA, about **6.5 million**
+pet animals enter animal shelters every year, where **23%** of them
+are eventually euthanized.

@@ -1,0 +1,32 @@
+---
+title: "Welcome"
+output: html_document
+---
+
+## Hi there.
+
+**Welcome to Montgomery Pets!**
+On this site, you can look through a list of adoptable animals
+reported by Montgomery County Animals Services in Maryland.
+
+This site provides you a way to explore and discover
+what characteristics of te pets are more likely to be
+found for adoption - or abandoned - in Montgomery County.
+
+Please be aware that the size of the dataset is limited,
+as it comes from a single county.
+It might not be representative of other places or the whole country.
+
+## Technical details.
+
+This [dataset](https://catalog.data.gov/dataset/adoptable-pets)
+is provided on data.gov in a CSV format.
+
+Multiple libraries are used in the processing and delivery of this
+dataset:
+
+- `DT`, for fancy data tables
+- `hash`, for easier data cleaning
+- and `tidyverse`, for all data processing and plotting needs
+
+We hope you enjoy your stay.

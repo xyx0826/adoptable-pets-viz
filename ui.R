@@ -6,6 +6,10 @@ shinyUI(fluidPage(
     navbarPage(
         "Montgomery Pets",
         tabPanel(
+            "Welcome",
+            includeMarkdown("welcome.Rmd")
+        ),
+        tabPanel(
             "Inspector",
             uiOutput("inspectorTitle"),
             fluidRow(
@@ -22,6 +26,10 @@ shinyUI(fluidPage(
                 column(6, plotOutput("explorerPlot1")),
                 column(6, plotOutput("explorerPlot2"))
             )
+        ),
+        tabPanel(
+            "Takeaways",
+            includeMarkdown("takeaways.Rmd")
         )
     )
 ))
