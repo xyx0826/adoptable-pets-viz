@@ -1,8 +1,10 @@
 library(shiny)
 library(DT)
 
+source("scripts/theme.R")
+
 shinyUI(fluidPage(
-    theme = "styles.css",
+    theme = theme,
     navbarPage(
         "Montgomery Pets",
         tabPanel(
@@ -22,8 +24,17 @@ shinyUI(fluidPage(
         tabPanel(
             "Explorer",
             uiOutput("explorerTitle"),
+            # First plot and description
             fluidRow(
-                column(6, plotOutput("explorerPlot1")),
+                column(
+                    6, align = "center",
+                    plotOutput("explorerPlot1"),
+                    textOutput("explorerPlot1Text")
+                )
+            ),
+            # Second plot and controls
+            fluidRow(
+                # column(6, plotOutput("explorerPlot1")),
                 column(6, plotOutput("explorerPlot2"))
             )
         ),
