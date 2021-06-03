@@ -45,3 +45,18 @@ getYearsFromAgeString <- function (str) {
 getVecFromColorString <- function (str) {
   str_to_title(str_split(str, " / ", simplify = TRUE))
 }
+
+# Pretty-prints an age in years to a simple description.
+prettyPrintAge <- function (age) {
+  if (age < 1) {
+    "less than a year-old"
+  } else if (age %% 1 > 0.5) {
+    paste0(
+      "almost ", ceiling(age),
+      if (ceiling(age) > 1) "-years" else "-year", "-old")
+  } else {
+    paste0(
+      trunc(age),
+      if (trunc(age) > 1) "-years" else "-year", "-old")
+  }
+}
