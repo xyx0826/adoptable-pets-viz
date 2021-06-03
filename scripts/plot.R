@@ -1,4 +1,20 @@
-testPlot <- function() {
+# plot.R: Creates plots for the Explorer view.
+
+# Global dataframe
+df <- getData()
+
+# Creates a bar plot of species counts.
+plotSpecies <- function() {
+  ggplot(df) +
+    ggtitle("Count of abandoned animals by species") +
+    geom_bar(aes(Animal.Type), stat = "count") +
+    theme(
+      text = element_text(size = 15)
+    )
+}
+
+# Creates a bar plot of breed counts.
+plotBreeds <- function() {
   data <- df %>%
     group_by(Breed) %>%
     summarise(n = n()) %>%
@@ -12,7 +28,10 @@ testPlot <- function() {
     filter(Breed %in% tops)
 
   ggplot(data) +
-    geom_bar(aes(Breed), stat = "count")
+    ggtitle("Top 6 abandoned breeds") +
+    geom_bar(aes(Breed), stat = "count") +
+    theme(
+      text = element_text(size = 15),
+      axis.text.x = element_text(angle = -45)
+    )
 }
-
-testPlot()

@@ -88,4 +88,12 @@ shinyServer(function (input, output) {
         },
         selection = "single"
     )
+    
+    # Explorer plots
+    output$explorerPlot1 <- renderPlot({
+        plotSpecies()
+    })
+    output$explorerPlot2 <- renderPlot({
+        plotBreeds()
+    })
 })

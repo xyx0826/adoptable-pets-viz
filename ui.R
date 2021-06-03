@@ -17,7 +17,11 @@ shinyUI(fluidPage(
         ),
         tabPanel(
             "Explorer",
-            uiOutput("explorerTitle")
+            uiOutput("explorerTitle"),
+            fluidRow(
+                column(6, plotOutput("explorerPlot1")),
+                column(6, plotOutput("explorerPlot2"))
+            )
         )
     )
 ))
