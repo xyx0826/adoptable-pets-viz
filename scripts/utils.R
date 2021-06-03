@@ -1,5 +1,6 @@
 # utils.R: contains functions for cleaning data.
 
+library(tidyverse)
 library(hash)
 
 # A look-up table for converting different time units to years.
@@ -7,6 +8,19 @@ TIME_UNITS <- hash(
   c("YEAR", "YEARS", "MONTH", "MONTHS", "WEEK", "WEEKS"),
   c(1,      1,       1/12,    1/12,     1/12/4, 1/12/4)
 )
+
+getData <- function() {
+  df <- read.csv("data/Adoptable_Pets.csv")
+  df <- df %>%
+    rename(Pet.Name = Pet.name) %>%
+    mutate(Intake.Type = str_to_title(Intake.Type)) %>%
+    mutate(Pet.Name = str_to_title(Pet.Name)) %>%
+    mutate(Animal.Type = str_to_title(Animal.Type)) %>%
+    mutate(Pet.Age = Vectorize(getYearsFromAgeString)(Pet.Age)) %>%
+    mutate(Pet.Size = str_to_title(Pet.Size)) %>%
+    mutate(Color = Vectorize(getVecFromColorString)(Color))
+  df
+}
 
 # Converts a string representative of animal age to
 # its number of years.
