@@ -93,8 +93,8 @@ shinyServer(function (input, output) {
     output$explorerPlot1 <- renderPlot({
         plotSpecies()
     })
-    output$explorerPlot1Text <- renderText({
-        prettyPrintSpecies()
+    output$explorerPlot1Text <- renderUI({
+        tags$em(prettyPrintSpecies())
     })
     output$explorerPlot2 <- renderPlot({
         plotBreeds()

@@ -66,7 +66,8 @@ prettyPrintSpecies <- function() {
   specs <- df %>%
     group_by(Animal.Type) %>%
     summarise(n = n()) %>%
-    select(Animal.Type, n)
+    select(Animal.Type, n) %>%
+    arrange(desc(n))
   for (i in 1:nrow(specs)) {
     spec = specs[i,]
     if (i == nrow(specs)) {

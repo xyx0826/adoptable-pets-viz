@@ -26,16 +26,21 @@ shinyUI(fluidPage(
             uiOutput("explorerTitle"),
             # First plot and description
             fluidRow(
-                column(
-                    6, align = "center",
-                    plotOutput("explorerPlot1"),
-                    textOutput("explorerPlot1Text")
-                )
+                column(5, plotOutput("explorerPlot1")),
+                column(4, uiOutput("explorerPlot1Text"))
             ),
             # Second plot and controls
             fluidRow(
-                # column(6, plotOutput("explorerPlot1")),
-                column(6, plotOutput("explorerPlot2"))
+                column(
+                    4,
+                    radioButtons(
+                        "explorerSpecies",
+                        label = "Breeds for species",
+                        choices = c("All", "Cats", "Dogs", "Other"),
+                        selected = "All"
+                    )
+                ),
+                column(5, plotOutput("explorerPlot2"))
             )
         ),
         tabPanel(
