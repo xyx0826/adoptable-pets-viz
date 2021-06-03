@@ -24,12 +24,35 @@ shinyServer(function (input, output) {
     })
     
     # Inspector selected info
-    selectedRow <- reactive({
+    selIndex <- reactive({
         input$inspectorTable_rows_selected
     })
-    output$inspectorSelected = renderText(
-        if (length(selectedRow()) == 0) "Select a row to view its details." else paste("Selected row:", selectedRow())
-    )
+    output$inspectorSelected = renderUI({
+        if (length(selIndex()) == 0) {
+            tags$span("Select a pet to view its information.")
+        } else {
+            selRow <- df[selIndex(),]
+            text <- paste0(
+                str_remove(selRow$Pet.Name, "\\*"),
+                if (selRow$Animal.Type == "Other")
+                    ""
+                else
+                    paste(" the", tolower(selRow$Animal.Type)),
+                " is a ",
+                prettyPrintAge(selRow$Pet.Age),
+                " ",
+                tolower(selRow$Breed),
+                "."
+            )
+            tags$p(text)
+        }
+    })
+    output$inspectorImage = renderUI({
+        selRow <- df[selIndex(),]
+        tags$img(
+            src = selRow$URL.Link
+        )
+    })
     
     # Inspector table
     output$inspectorTable = renderDT({
