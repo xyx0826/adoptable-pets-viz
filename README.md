@@ -1,6 +1,7 @@
 # adoptable-pets-viz
 
 Final project for BA Group 5.
+
 Group Member: Jack Sui, Karlie Chen, Jueqi Liu, Selena Li
 
 shinyapp.io: https://xyx0826.shinyapps.io/adoptable-pets-viz/
