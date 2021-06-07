@@ -134,11 +134,11 @@ shinyServer(function (input, output) {
         }
         
         plot <- ggplot(df, aes(Pet.Age, 0)) +
-            geom_boxplot() +
-            geom_jitter()
+            geom_boxplot(outlier.shape = NA) +
+            geom_jitter(width = 0.5)
         if (is.list(selRow)) {
             plot <- plot +
-                geom_point(aes(selRow$Pet.Age, 0), size = 3, color = "red") +
+                geom_vline(xintercept = selRow$Pet.Age, color = "red") +
                 geom_text(
                     data = selRow,
                     aes(Pet.Age, 0, label = Pet.Age, color = "red"),
@@ -147,6 +147,9 @@ shinyServer(function (input, output) {
         }
         plot +
             ggtitle(title) +
+            # Hack to remove Y axis
+            scale_y_discrete(labels = NULL, breaks = NULL) +
+            labs(y = "") +
             theme(legend.position = "none")
     })
     
