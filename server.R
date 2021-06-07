@@ -64,11 +64,66 @@ shinyServer(function (input, output) {
             tags$p(text)
         }
     })
+    
+    # Inspector image
     output$inspectorImage = renderUI({
         selRow <- df[selIndex(),]
         tags$img(
             src = selRow$URL.Link
         )
+    })
+    
+    # Inspector map
+    output$inspectorMap = renderPlot({
+        map = map_data("county", region = "maryland")
+        title <- "Select a stray to see where it was found."
+        selRow <- NA
+        if (length(selIndex()) > 0) {
+            # Row selected
+            selRow <- df[selIndex(),]
+            if (is.na(selRow$lng) | is.na(selRow$lat)) {
+                # No coordinate, discard this row
+                row <- NA
+            } else {
+                # Coordinates valid, format title
+                title <- paste("Location of recovery for", selRow$Pet.Name)
+            }
+        }
+
+        plot <- ggplot(map) +
+            geom_polygon(
+                aes(long, lat, group = group),
+                fill = "blue4", color = "aliceblue", size = 0.1
+            )
+        if (is.list(selRow)) {
+            # Plot the dot and zoom in on it
+            plot <- plot +
+                # Zoom in
+                coord_fixed(
+                    xlim = c(selRow$lng - 0.7, selRow$lng + 0.7),
+                    ylim = c(selRow$lat - 0.35, selRow $ lat + 0.35)
+                ) +
+                # Plot point
+                geom_point(aes(selRow$lng, selRow$lat, size = 3), color = "red") +
+                # Plot street address
+                geom_text(
+                    data = selRow,
+                    aes(lng, lat, label = Crossing, color = "red"),
+                    hjust = "middle", vjust = 0, nudge_y = 0.07
+                )
+        } else {
+            # No geo data, use vanilla axes
+            plot <- plot +
+                coord_fixed()
+        }
+        plot +
+            ggtitle(title) +
+            theme(legend.position = "none")
+    })
+    
+    # Inspector box plot
+    output$inspectorPlot = renderPlot({
+        
     })
     
     # Inspector table
@@ -84,7 +139,7 @@ shinyServer(function (input, output) {
             mutate(Age = round(Pet.Age, digits = 2)) %>%
             mutate(Color = paste(Color, collapse = " / ")) %>%
             as.data.frame() %>%
-            select(-Pet.Age, -URL.Link, -Crossing)
+            select(-Pet.Age, -URL.Link, -Crossing, -lat, -lng)
         },
         selection = "single"
     )
