@@ -179,6 +179,12 @@ shinyServer(function (input, output) {
         tags$em(prettyPrintSpecies())
     })
     output$explorerPlot2 <- renderPlot({
-        plotBreeds()
+        if (input$explorerSpecies == "All") {
+            plotBreeds(df)
+        } else {
+            data <- df %>%
+                filter(str_detect(input$explorerSpecies, Animal.Type))
+            plotBreeds(data)
+        }
     })
 })

@@ -39,8 +39,8 @@ shinyUI(fluidPage(
                     4,
                     radioButtons(
                         "explorerSpecies",
-                        label = "Breeds for species",
-                        choices = c("All", "Cats", "Dogs", "Other"),
+                        label = "View up to 6 top breeds for species:",
+                        choices = c("All", "Cats", "Dogs", "Birds and Others"),
                         selected = "All"
                     )
                 ),
