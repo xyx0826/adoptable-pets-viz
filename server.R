@@ -123,7 +123,31 @@ shinyServer(function (input, output) {
     
     # Inspector box plot
     output$inspectorPlot = renderPlot({
+        title <- "Age distribution of adoptable pets."
+        selRow <- NA
+        if (length(selIndex()) > 0) {
+            # Row selected
+            selRow <- df[selIndex(),]
+            title <- paste0(
+                selRow$Pet.Name, "'s age in relation to other adoptable pets."
+            )
+        }
         
+        plot <- ggplot(df, aes(Pet.Age, 0)) +
+            geom_boxplot() +
+            geom_jitter()
+        if (is.list(selRow)) {
+            plot <- plot +
+                geom_point(aes(selRow$Pet.Age, 0), size = 3, color = "red") +
+                geom_text(
+                    data = selRow,
+                    aes(Pet.Age, 0, label = Pet.Age, color = "red"),
+                    hjust = 0, vjust = 0, nudge_x = 0.5
+                )
+        }
+        plot +
+            ggtitle(title) +
+            theme(legend.position = "none")
     })
     
     # Inspector table
