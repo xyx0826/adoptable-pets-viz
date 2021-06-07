@@ -18,7 +18,11 @@ shinyUI(fluidPage(
                 column(9, uiOutput("inspectorSelected")),
                 column(3, actionButton("random", "Inspect random pet"))
             ),
-            uiOutput("inspectorImage"),
+            fluidRow(
+                column(4, uiOutput("inspectorImage")),
+                column(4, plotOutput("inspectorMap")),
+                column(4, plotOutput("inspectorPlot"))
+            ),
             DTOutput("inspectorTable"),
         ),
         tabPanel(
@@ -35,8 +39,8 @@ shinyUI(fluidPage(
                     4,
                     radioButtons(
                         "explorerSpecies",
-                        label = "Breeds for species",
-                        choices = c("All", "Cats", "Dogs", "Other"),
+                        label = "View up to 6 top breeds for species:",
+                        choices = c("All", "Cats", "Dogs", "Birds and Others"),
                         selected = "All"
                     )
                 ),

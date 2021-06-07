@@ -3,7 +3,7 @@
 library(bslib)
 
 theme <- bs_theme(
-  bg = "#cbcdcd",
+  bg = "#f2f2f2",
   fg = "#4c5355",
   primary = "#c44b4f",
   secondary = "#607d86",

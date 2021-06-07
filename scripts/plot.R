@@ -14,8 +14,10 @@ plotSpecies <- function() {
 }
 
 # Creates a bar plot of breed counts.
-plotBreeds <- function() {
-  data <- df %>%
+# data: The data to plot. This function doesn't take global df
+#       to allow filtering.
+plotBreeds <- function (data) {
+  data <- data %>%
     group_by(Breed) %>%
     summarise(n = n()) %>%
     arrange(desc(n))

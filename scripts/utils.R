@@ -18,7 +18,10 @@ getData <- function() {
     mutate(Pet.Age = Vectorize(getYearsFromAgeString)(Pet.Age)) %>%
     mutate(Pet.Size = str_to_title(Pet.Size)) %>%
     mutate(Color = Vectorize(getVecFromColorString)(Color))
-  df
+  
+  # Join the dataframe with coordinates
+  df_geo <- read.csv("data/Adoptable_Pets_Locations.csv")
+  left_join(df, df_geo, by = c("Animal.ID" = "id"))
 }
 
 # Converts a string representative of animal age to
