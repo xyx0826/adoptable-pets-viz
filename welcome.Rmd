@@ -30,3 +30,5 @@ dataset:
 - and `tidyverse`, for all data processing and plotting needs
 
 We hope you enjoy your stay.
+
+![pets](imags/pets.jpeg)
