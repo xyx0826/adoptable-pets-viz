@@ -4,6 +4,14 @@ output: html_document
 ---
 
 Here is an opportunity to browser all kinds of pets through the table. 
-You may search the key word such as, breed, animal type (eg.dog, cat), etc.
-You may also see your selected pet's location and age distribution among 
-all of the pets through the charts. 
+You may search the **key word**, which includes the breed, animal type (eg.dog,
+cat), intake time, pet name, color, etc. 
+By searching key work, the table would automatically filter the eligible pets.
+
+After selecting a specific pet, an associated picture would display on the top of the table. 
+You may also see your selected pet's **location** and **age** distribution among
+all of the pets through the charts. For the **location** map, the x-axis is
+the longitude, and the y-axis is the latitude. The red dot showed the specific
+location of the pet. The chart right next to the map displayed the **age**
+distribution of the pet. You may see clearly how the selected pet's age
+distributed among the all through the orientated red dot. 

@@ -2,7 +2,13 @@
 title: "explorer"
 output: html_document
 ---
+The first bar chart displays the total amount of number of different **types of pets**. 
 From the first chart, among the various types of pets, such as dogs, cats,
 rabbits, birds, etc, the largest number of the sheltered animals in the dataset
-of Montgomery County is cats.
-From the second chart, in terms of the specific breeds, domestic shorthair cats and pitbulls are the most sheltered pets. 
+of Montgomery County is _cats_.
+
+The second bar chart has a selecting bar of specific breed between four
+different animal types, which include, _cats_, _dogs_, _other_, and _all_ a
+total of four options. By selecting different option, the bar chart displays 
+the total number of amount of each particular breed. 
+Through the second chart, in terms of the specific breeds, _domestic shorthair cats_ and _pitbulls_ are the most sheltered pets. 
