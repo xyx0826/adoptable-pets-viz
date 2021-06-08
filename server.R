@@ -214,4 +214,11 @@ shinyServer(function (input, output) {
             plotBreeds(data)
         }
     })
+    
+    ######## Takeaways ########
+    
+    # Takeaways plot
+    output$takeawaysPlot <- renderPlot({
+        plotSpecies()
+    })
 })

@@ -7,7 +7,7 @@ df <- getData()
 plotSpecies <- function() {
   ggplot(df) +
     ggtitle("Count of abandoned animals by species") +
-    geom_bar(aes(Animal.Type), stat = "count") +
+    geom_bar(aes(Animal.Type, fill = Animal.Type), stat = "count") +
     theme(
       text = element_text(size = 15)
     )
@@ -31,7 +31,7 @@ plotBreeds <- function (data) {
 
   ggplot(data) +
     ggtitle("Top 6 abandoned breeds") +
-    geom_bar(aes(Breed), stat = "count") +
+    geom_bar(aes(Breed, fill = Breed), stat = "count") +
     theme(
       text = element_text(size = 15),
       axis.text.x = element_text(angle = -45)

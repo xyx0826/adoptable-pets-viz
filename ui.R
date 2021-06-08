@@ -60,7 +60,8 @@ shinyUI(fluidPage(
         ),
         tabPanel(
             "Takeaways",
-            includeMarkdown("takeaways.Rmd")
+            includeMarkdown("takeaways.Rmd"),
+            plotOutput("takeawaysPlot")
         )
     )
 ))
