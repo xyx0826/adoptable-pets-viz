@@ -1,0 +1,9 @@
+---
+title: "inspector"
+output: html_document
+---
+
+Here is an opportunity to browser all kinds of pets through the table. 
+You may search the key word such as, breed, animal type (eg.dog, cat), etc.
+You may also see your selected pet's location and age distribution among 
+all of the pets through the charts. 

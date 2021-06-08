@@ -1,0 +1,8 @@
+---
+title: "explorer"
+output: html_document
+---
+From the first chart, among the various types of pets, such as dogs, cats,
+rabbits, birds, etc, the largest number of the sheltered animals in the dataset
+of Montgomery County is cats.
+From the second chart, in terms of the specific breeds, domestic shorthair cats and pitbulls are the most sheltered pets. 
