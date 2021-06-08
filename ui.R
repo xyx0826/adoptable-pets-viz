@@ -37,11 +37,13 @@ shinyUI(fluidPage(
             fluidRow(
                 column(
                     4,
-                    radioButtons(
-                        "explorerSpecies",
-                        label = "View up to 6 top breeds for species:",
-                        choices = c("All", "Cats", "Dogs", "Birds and Others"),
-                        selected = "All"
+                    sidebarPanel(width = 10,
+                        radioButtons(
+                            "explorerSpecies",
+                            label = "View up to 6 top breeds for species:",
+                            choices = c("All", "Cats", "Dogs", "Birds and Others"),
+                            selected = "All"
+                        )
                     )
                 ),
                 column(5, plotOutput("explorerPlot2"))
