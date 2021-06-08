@@ -166,7 +166,7 @@ shinyServer(function (input, output) {
             mutate(Age = round(Pet.Age, digits = 2)) %>%
             mutate(Color = paste(Color, collapse = " / ")) %>%
             as.data.frame() %>%
-            select(-Pet.Age, -URL.Link, -Crossing, -lat, -lng)
+            select(-Pet.Age, -URL.Link, -Crossing, -lat, -lng, -hex)
         },
         selection = "single"
     )
