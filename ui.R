@@ -12,6 +12,13 @@ shinyUI(fluidPage(
             includeMarkdown("welcome.Rmd")
         ),
         tabPanel(
+            "Overview",
+            uiOutput("overviewTitle"),
+            includeMarkdown("overview.Rmd"),
+            uiOutput("overviewSlider"),
+            plotOutput("overviewPlot")
+        ),
+        tabPanel(
             "Inspector",
             uiOutput("inspectorTitle"),
             includeMarkdown("inspector.Rmd"),

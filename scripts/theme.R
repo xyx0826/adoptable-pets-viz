@@ -19,4 +19,6 @@ theme <- bs_theme(
 
 theme <- theme %>%
   # Inspector elements margin
-  bs_add_rules(".row { margin: 30px 0px 30px 0px; }")
+  bs_add_rules(".row { margin: 30px 0px 30px 0px; }") %>%
+  # Make the slider looooooong on Overview panel
+  bs_add_rules("#overviewSlider > .shiny-input-container { width: auto; }")

@@ -24,6 +24,7 @@ getData <- function() {
   df <- df %>%
     rename(Pet.Name = Pet.name) %>%
     mutate(Intake.Type = str_to_title(Intake.Type)) %>%
+    mutate(In.Date = as.Date(In.Date, "%m/%d/%Y")) %>%
     mutate(Pet.Name = str_to_title(Pet.Name)) %>%
     mutate(Animal.Type = str_to_title(Animal.Type)) %>%
     mutate(Pet.Age = Vectorize(getYearsFromAgeString)(Pet.Age)) %>%

@@ -28,14 +28,39 @@ shinyServer(function (input, output) {
     })
 
     # Create static titles
+    output$overviewTitle = renderUI({
+        tags$h3("Browse Montgomery County, MD's adoptable pets on a time axis.")
+    })
     output$inspectorTitle = renderUI({
-        tags$h3(paste("Get to know the", nrow(df), "pets for adoption in Montgomery County, MD."))
+        tags$h3(paste("Get to know the", nrow(df), "pets for adoption in Montgomery."))
     })
     output$explorerTitle = renderUI({
-        tags$h3("Quick summaries of Montgomery County, MD's adoptable pets.")
+        tags$h3("Quick summaries of Montgomery's adoptable pets.")
     })
     
-    # Inspector selected info
+    ######## Overview ########
+    
+    # Overview page-wide date selector
+    output$overviewSlider = renderUI({
+        dmin <- min(df$In.Date)
+        dmax <- max(df$In.Date)
+        sliderInput(
+            "dt",
+            "View time range on the plot:",
+            dmin, dmax,
+            value = c(dmin, dmax),
+            timeFormat = "%b %d, %Y"
+        )
+    })
+
+    # Overview date plot
+    output$overviewPlot = renderPlot({
+        plotDate(input$dt[1], input$dt[2])
+    })
+    
+    ######## Inspector ########
+    
+    # Inspector table selection logic
     selIndex <- reactive({
         input$inspectorTable_rows_selected
     })
@@ -57,7 +82,7 @@ shinyServer(function (input, output) {
                 # Pretty-print ages
                 prettyPrintAge(selRow$Pet.Age),
                 " ",
-                # TODO: pretty-print breed
+                # Lowercase breed
                 tolower(selRow$Breed),
                 "."
             )
@@ -170,6 +195,8 @@ shinyServer(function (input, output) {
         },
         selection = "single"
     )
+    
+    ######## Explorer ########
     
     # Explorer plots
     output$explorerPlot1 <- renderPlot({
