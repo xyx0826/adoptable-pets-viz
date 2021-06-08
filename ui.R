@@ -29,7 +29,7 @@ shinyUI(fluidPage(
         tabPanel(
             "Explorer",
             uiOutput("explorerTitle"),
-            includeMarkdown(explorer.Rmd),
+            includeMarkdown("explorer.Rmd"),
             # First plot and description
             fluidRow(
                 column(5, plotOutput("explorerPlot1")),
