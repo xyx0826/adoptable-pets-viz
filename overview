@@ -1,0 +1,6 @@
+---
+title: "overview"
+output: html_document
+---
+
+In this tab, you can see several different data points about the pets available for adoption. The shape of the data points represent the size of the animal. The size of the data points represents the age of the animal. The data points' position along the graph represents how long the animal has been staying at the shelter.
