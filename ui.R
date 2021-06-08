@@ -14,7 +14,7 @@ shinyUI(fluidPage(
         tabPanel(
             "Inspector",
             uiOutput("inspectorTitle"),
-            includeMarkdown("inspector.Rmd")
+            includeMarkdown("inspector.Rmd"),
             fluidRow(
                 column(9, uiOutput("inspectorSelected")),
                 column(3, actionButton("random", "Inspect random pet"))
@@ -29,7 +29,7 @@ shinyUI(fluidPage(
         tabPanel(
             "Explorer",
             uiOutput("explorerTitle"),
-            includeMarkdown(explorer.Rmd)
+            includeMarkdown(explorer.Rmd),
             # First plot and description
             fluidRow(
                 column(5, plotOutput("explorerPlot1")),
