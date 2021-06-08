@@ -11,11 +11,14 @@ and abandonment - landscape.
 
 First, among the various kinds of pets, such as dogs, cats, rabbits,
 birds, etc, the largest number of the sheltered animals in the dataset
-of Montgomery County is cats.
+of Montgomery County is cats. As shown in our baar chart of abandoned animals, there are 35 cats available for adoption out of 80 total available animals, which is nearly half. This is closely followed by dogs, of which there are 31 dogs available for adoption. 
+
 Secondly, in terms of the specific breeds, domestic shorthair cats and
-pitbulls are the most sheltered pets.
+pitbulls are the most sheltered pets. It seems that out of the cats available for adoption, most are domestic shorthairs, as shown in our other bar graph, there are 27 domestic shorthairs out of 35 total cats. It also seems that the majority of the dog available for adoption are American pitbull terriers, seeing that there are 18 pitbulls out of 31 total dogs. 
 
 The dataset is published by Montgomery County Animal Services, and is said to update every two hours. However, the last update occurred in December of 2020, so there is the issue of how up to date the dataset is. The dataset is also restricted to a single county and contains only 80 rows. Therefore statistical analysis from this dataset might not be very conclusive. We don’t expect the dataset to cause any ethical issues, though it may affect how potential pet owners choose their pet to adopt, since pets that have already been adopted may still show in the dataset and newly available adoptable pets will not show up in the dataset. General analysis of this dataset may also provide information to pet shelters on how to better allocate resources for different types of animals. 
+
+These insights indicate several things: that cats make up the majority of abandoned or stray animals, likely because they breed quickly when they are not spayed or neutered, meaning that shelters should consider neuter-and-release programs to control cat populations. Another insight is that pitbulls are the breed of dogs most abandoned, most likley because they have a bad reputation of being a dangerous breed, and they are more likely to be given up due to this reputation, especially in cases where landlords do not allow pitpulls. 
 
 In the future, we can consider analyzing data about adoptable animals from a larger dataset entailing nation-wide adoboptable pets rather than just from a single county. 
 
