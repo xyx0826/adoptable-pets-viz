@@ -10,6 +10,7 @@
 library(tidyverse)
 library(shiny)
 library(DT)
+library(maps)
 
 source("scripts/utils.R")
 source("scripts/plot.R")
